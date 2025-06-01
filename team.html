@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TEDx GPREC</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <style>
     body{
     background-color:black;
@@ -101,6 +101,94 @@
     height: 50px;
   }
 }
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  color: #ff1a1a;
+  padding-top: 60px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 3px;
+  background: #ff1a1a;
+  margin: 15px auto 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  padding: 0 40px 80px;
+  justify-items: center;
+}
+
+.team-member {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(255, 26, 26, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 0 24px rgba(255, 26, 26, 0.6);
+}
+
+.team-member img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ /* filter: grayscale(100%);*/
+  transition: filter 0.5s ease;
+}
+
+.team-member:hover img {
+  filter: grayscale(0%);
+}
+
+.overlay {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: rgba(255, 26, 26, 0.9);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  transition: bottom 0.4s ease;
+}
+
+.team-member:hover .overlay {
+  bottom: 0;
+}
+
+.overlay h3 {
+  margin: 5px 0 0;
+  font-size: 18px;
+}
+
+.overlay p {
+  margin: 0;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.role-heading {
+  font-size: 24px;
+  color: #ff1a1a;
+  margin: 40px 60px 10px;
+  border-left: 5px solid #ff1a1a;
+  padding-left: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -137,9 +225,265 @@
       </div>
     </div>
   </nav>
-
-
 </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Added missing container for team content -->
+<div id="team-sections"></div>
+
+<script>
+const teamData1 = [
+  {
+    section: "Organizers",
+    members: [
+      {
+        name: "M Gandhi Prakash",
+        role: "Organiser",
+        image: "2024/Organisers/gandhi.jpg",
+      },
+      {
+        name: "T Chethana Choudary",
+        role: "Co-Organizer",
+        image: "2024/Organisers/chethana.jpg",
+      },
+      {
+        name: "G Lalith Aditya",
+        role: "Executive Director",
+        image: "2024/Organisers/Aditya.jpg",
+      },
+    ],
+  },
+  {
+    section: "Design Team",
+    members: [
+      {
+        name: "K S Gokul",
+        role: "Director",
+        image: "2024/Designers/gokul.jpg",
+      },
+      {
+        name: "Jagadeesh Nallabothula",
+        role: "Co-Director",
+        image: "2024/Designers/jagadesh.jpg",
+      },
+      {
+        name: "Buchupalli Pujitha",
+        role: "Member",
+        image: "2024/Designers/pujitha.jpg",
+      },
+    ],
+  },
+  {
+    section:"Editorial and Documentation Team",
+members:[
+  {
+   name:"Reethika Sreeja",
+   role:"Director",
+   image:"2024/Editorial/sreeja.jpg",
+  },
+  {
+    name:"Vaishnavi",
+    role:"Co-Director",
+    image:"2024/Editorial/vaishnavi.jpg",
+  },
+  {
+    name:"Deepika Shalini",
+    role:"Member",
+    image:"2024/Editorial/Deepika.jpg",
+  },
+  {
+    name:"Meka Bhavya Sree",
+    role:"Member",
+    image:"2024/Editorial/bhavya.jpg",
+      },  
+
+]
+  },
+  {
+    section:"Finance and Sponsorship Team",
+    members:[
+      {
+        name: "G sai Harshith",
+        role: "Director",
+        image: "2024/Sponsorship/harshith.png",
+      },
+      {
+        name: "Jaswanth",
+        role: "Co-Director",
+        image: "2024/Sponsorship/jaswanth.jpg",
+      },
+    ]
+  },
+  {
+section:"Logistics Team",
+members:[
+  {
+    name: "K Rohith Reddy",
+    role: "Director",
+    image: "2024/Logistics/rohith.jpg",
+
+  },
+  {
+    name: "C Sainadh Reddy",
+    role: "Co-Director",
+    image: "2024/Logistics/sainadh.jpg",
+  },
+  {
+    name:"Rajavardhan Reddy",
+    role:"Member",
+    image:"2024/Logistics/Raju.jpg",
+  },
+  {
+    name:"Deepak",
+    role:"Member",
+    image:"2024/Logistics/deepak11.jpg",
+  }
+]
+  },
+  {
+    section:"Public Relations Team",
+    members:[
+      {
+        name: "M Sumana Sree",
+        role: "Director",
+        image: "2024/PublicRelations/Sumana.jpeg",
+      },
+      {
+        name: "G R S Spandana",
+        role: "Member",
+        image: "2024/PublicRelations/spandana.jpg",
+      },
+      {
+        name: "R Yashika Reddy",
+        role: "Member",
+        image: "2024/PublicRelations/Yashika.jpg",
+      },
+      {
+        name: "G R Sri Nihitha",
+        role: "Member",
+        image: "2024/PublicRelations/Nihitha.png",
+      },
+      {
+        name: "L Akshitha",
+        role: "Member",
+        image: "2024/PublicRelations/Akshitha.jpg",
+
+      },
+    ] 
+  },
+  {
+    section:"Publicity and Marketing Team",
+    members:[
+      {
+        name: "A Supraja",
+        role: "Director",
+        image: "2024/PandmTeam/Supraja.jpg",
+      },
+      {
+        name: "M Gayathri",
+        role: "Member",
+        image: "2024/PandmTeam/gayathri.jpg",
+      },
+      {
+        name: "Mythreyi Mahanandigiri",
+        role: "Member",
+        image: "2024/PandmTeam/mythri.jpg",
+      },
+      {
+        name: "Katika Sailu",
+        role: "Member",
+        image: "2024/PandmTeam/sailu.jpg",
+      },
+      {
+        name: "M S Faiza Anjum",
+        role: "Member",
+        image: "2024/PandmTeam/faiza.jpg",
+      },
+    ]
+  },
+  {
+    section: "Speaker and Guest Care Team",
+    members:[
+      {
+        name:"M Neha",
+        role: "Director",
+        image: "2024/SG/Neha_.jpg",
+      },
+      {
+        name: "Narla Haritha",
+        role: "Co-Director",
+        image: "2024/SG/haritha.jpg",
+      },
+      {
+
+        name: "Bhuma Mounika",
+        role: "Co-Director",
+        image: "2024/SG/mounika.jpg",
+      },
+    ]
+  },
+  {
+    section:"Technical Team",
+    members:[
+      {
+        name:"Sanjay Raj",
+        role :"Director",
+        image:"2024/TechnicalTeam/sanjay.jpg",
+
+      },
+      {
+        name:"Avinash Golla",
+        role :"Co-Director",
+        image:"2024/TechnicalTeam/Avinash.jpg"
+      },
+      {
+        name:"Y Hari Priya",
+        role :"Member",
+        image:"2024/TechnicalTeam/HariPriya.jpg"
+      },
+      {
+        name:"Qazi Mosa",
+        role :"Member",
+        image:"2024/TechnicalTeam/Mosa.png"
+      },
+    ]
+  },
+];
+
+  const container = document.getElementById("team-sections");
+
+  teamData1.forEach(section => {
+    const sectionDiv = document.createElement("div");
+    sectionDiv.classList.add("team-section", "mb-5");
+
+    const heading = document.createElement("h2");
+    heading.classList.add("text-center", "mb-4", "role-heading");
+    heading.textContent = section.section;
+    sectionDiv.appendChild(heading);
+
+    const grid = document.createElement("div");
+    grid.classList.add("row", "justify-content-center", "gx-4", "gy-4", "team-grid");
+
+    section.members.forEach(member => {
+      const memberDiv = document.createElement("div");
+      memberDiv.classList.add("col-6", "col-sm-4", "col-md-3", "text-center");
+
+      memberDiv.innerHTML = `
+        <div class="team-member">
+          <img src="${member.image}" alt="${member.name}" class="img-fluid rounded shadow" />
+          <div class="overlay mt-2">
+            <h5>${member.name}</h5>
+            <p class="text-muted">${member.role}</p>
+          </div>
+        </div>
+      `;
+      grid.appendChild(memberDiv);
+    });
+
+    sectionDiv.appendChild(grid);
+    container.appendChild(sectionDiv);
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
