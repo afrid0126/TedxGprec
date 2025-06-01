@@ -185,8 +185,8 @@ body {
   }
 
   .theme-image {
-    height: 350px;
-    width:350px;
+    height: 300px;
+    width:300px;
   }
 
   .theme-content {
@@ -260,9 +260,9 @@ body {
   }
 
   .theme-image {
-    width: 35px;
+    width: 300px;
     max-height: 350px;
-    height: 350px;
+    height: 300px;
   }
 
   .theme-content {
