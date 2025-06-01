@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEDxGPREC</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="theme.css" />
+</head>
+<body>
+ 
+  <nav class="navbar navbar-expand-lg glass-navbar sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand mx-auto" href="index.html">
+        <img src="photos/tedex.png" alt="TEDx GPREC" class="logo-img" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center mt-3 mt-lg-0" id="navbarNav">
+        <ul class="navbar-nav text-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="theme.html">Theme</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Speakers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Performers</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Sponsors</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+ <div class="themes-container">
+    <div class="theme-card">
+      <div class="theme-photo">
+        <img src="photos\deartomorrow.jpg" alt="DEAR TOMORROW" class="theme-image" />
+      </div>
+      <div class="theme-content">
+        <h2 class="theme-title text-danger">DEAR TOMORROW</h2>
+        <p class="theme-description">
+          Every tomorrow is a new beginning for all. It gives us immense potential to start anew, blesses us with unending hope to envision the future we dream of, and provides another chance to forget the regrets we have, to leave the past behind, and to move a step closer to the life we aspire to. With every tomorrow, we can become a little stronger and kinder, creating a new self that can bring even the slightest change to this world.
+        </p>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-photo">
+        <img src="photos\newreality.png" alt="UNBOXING NEW REALITY" class="theme-image" />
+      </div>
+      <div class="theme-content">
+        <h2 class="theme-title text-danger">UNBOXING NEW REALITY</h2>
+        <p class="theme-description">
+          "Unboxing the new reality" is to give way to a new normal where we are not living in the same kind of environment as of a few years ago. We now live in a new reality, so we have to acknowledge the fact that this differs from situation that prevailed prior to the start of the covid crisis. Our theme extends to showcase the new trends in technology, arts, design and other fields.
+        </p>
+      </div>
+    </div>
+
+    <div class="theme-card">
+      <div class="theme-photo">
+        <img src="assets/example.jpg" alt="EXAMPLE THEME" class="theme-image" />
+      </div>
+      <div class="theme-content">
+        <h2 class="theme-title text-danger">EXAMPLE THEME</h2>
+        <p class="theme-description">More details coming soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeCards = document.querySelectorAll('.theme-card');
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          const themePhoto = entry.target.querySelector('.theme-photo');
+          const themeContent = entry.target.querySelector('.theme-content');
+
+          if (entry.isIntersecting) {
+            themePhoto.style.animation = 'slideInLeft 0.8s ease-out forwards';
+            themeContent.style.animation = 'slideInRight 0.8s ease-out forwards';
+          } else {
+            themePhoto.style.animation = 'slideOutLeft 0.8s ease-in forwards';
+            themeContent.style.animation = 'slideOutRight 0.8s ease-in forwards';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      themeCards.forEach(card => observer.observe(card));
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
