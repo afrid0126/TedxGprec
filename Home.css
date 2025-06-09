@@ -313,8 +313,6 @@ html {
   .countdown {
     flex-direction: row;
     gap: 10px;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
   }
 
