@@ -255,24 +255,24 @@ html {
 
   .countdown {
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; 
     justify-content: center;
     align-items: center;
-    gap: 16px;
-    margin-top: 2rem;
+    gap: 10px;
     position: static;
+    transform: scale(0.9); 
   }
-
   .flip-card {
-    width: 60px;
-    height: 80px;
+    width: 50px;
+    height: 70px;
   }
 
   .flip-card .top,
   .flip-card .flip-top {
-    font-size: 3rem;
-    line-height: 80px;
+    font-size: 2.5rem;
+    line-height: 70px;
   }
+
 
   .label {
     font-size: 1rem;
@@ -331,5 +331,15 @@ html {
 
   .label {
     font-size: 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .countdown {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    gap: 8px;
   }
 }
