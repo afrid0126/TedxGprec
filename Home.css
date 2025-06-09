@@ -5,6 +5,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+canvas {
+  z-index: 0 ;
+  position: absolute ;
+}
+
 
 .glass-navbar {
   background: rgba(0, 0, 0, 0.4);
@@ -253,14 +258,17 @@ html {
     border-radius: 50px;
   }
 
-  .countdown {
+.countdown {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
     flex-direction: row;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    position: static;
-    transform: scale(0.9); 
+    z-index: 10;
   }
   .flip-card {
     width: 50px;
@@ -313,6 +321,8 @@ html {
   .countdown {
     flex-direction: row;
     gap: 10px;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
   }
 
