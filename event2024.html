@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEDxGPREC</title>
+  <link rel="stylesheet" href="home.css" />
+  <script src="home.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="event.css">
+</head>
+<body>
+
+
+
+      
+  <!-- Navbar -->
+  <div class="nav-container">
+    <img src="media/photos/logo-white.png" alt="TEDxGPREC Logo" class="logo" />
+    <div class="hamburger" onclick="toggleMenu(this)">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <section>
+<div class="video">
+  <video autoplay loop muted playsinline>
+    <source src="Opening video.mp4" type="video/mp4" />
+  </video>
+</div>
+</section>
+
+
+<section class="timeline-section">
+  <h1 class="timeline-title">Flow of Event</h1>
+    <div class="scroll-arrows">
+  <button class="scroll-btn left">&#10094;</button>
+  <button class="scroll-btn right">&#10095;</button>
+</div>
+  <div class="timeline-container">
+
+
+    <div class="timeline">
+
+      <div class="timeline-item" data-title="Opening" data-desc="10:00 AM – Kick-off ceremony with lamp lighting and introductions.">
+        <div class="timeline-circle"><img src="media/photos/inagural.JPG" alt="Opening" loading="lazy"></div>
+        <p class="label">Opening</p>
+      </div>
+
+      <div class="timeline-item" data-title="Speaker 1" data-desc="10:20 AM – Our first speaker sets the tone with an inspiring talk.">
+        <div class="timeline-circle"><img src="media/photos/speaker1.JPG" alt="Speaker 1" loading="lazy"></div>
+        <p class="label">Speaker 1</p>
+      </div>
+
+      <div class="timeline-item" data-title="Performance" data-desc="10:50 AM – First cultural performance to energize the audience.">
+        <div class="timeline-circle"><img src="media/photos/peformance1.JPG" alt="Performance 1" loading="lazy"></div>
+        <p class="label">Performance</p>
+      </div>
+
+      <div class="timeline-item" data-title="Speaker 2" data-desc="11:10 AM – Talk by our second speaker.">
+        <div class="timeline-circle"><img src="media/photos/speaker2.JPG" alt="Speaker 2" loading="lazy"></div>
+        <p class="label">Speaker 2</p>
+      </div>
+
+      <div class="timeline-item" data-title="Break" data-desc="11:40 AM – Short break and refreshments.">
+        <div class="timeline-circle"><img src="media/photos/break.jpeg" alt="Break 1" loading="lazy"></div>
+        <p class="label">Break</p>
+      </div>
+
+      <div class="timeline-item" data-title="Performance" data-desc="12:00 PM – Second cultural performance.">
+        <div class="timeline-circle"><img src="media/photos/performance2.JPG" alt="Performance 2" loading="lazy"></div>
+        <p class="label">Performance 2</p>
+      </div>
+
+      <div class="timeline-item" data-title="Speaker 3" data-desc="12:20 PM – Talk by our third speaker.">
+        <div class="timeline-circle"><img src="media/photos/speaker3.JPG" alt="Speaker 3" loading="lazy"></div>
+        <p class="label">Speaker 3</p>
+      </div>
+
+      <div class="timeline-item" data-title="Performance" data-desc="12:50 PM – Third cultural performance.">
+        <div class="timeline-circle"><img src="media/photos/performance3.JPG" alt="Performance 3" loading="lazy"></div>
+        <p class="label">Performance 3</p>
+      </div>
+
+      <div class="timeline-item" data-title="Break" data-desc="1:10 PM – Lunch Break.">
+        <div class="timeline-circle"><img src="media/photos/break.jpeg" alt="Break 2" loading="lazy"></div>
+        <p class="label">Break 2</p>
+      </div>
+
+      <div class="timeline-item" data-title="Speaker 4" data-desc="2:10 PM – Talk by our fourth speaker.">
+        <div class="timeline-circle"><img src="media/photos/speaker4.JPG" alt="Speaker 4" loading="lazy"></div>
+        <p class="label">Speaker 4</p>
+      </div>
+
+      <div class="timeline-item" data-title="Performance" data-desc="2:40 PM – Fourth cultural performance.">
+        <div class="timeline-circle"><img src="media/photos/peformance4.JPG" alt="Performance 4" loading="lazy"></div>
+        <p class="label">Performance 4</p>
+      </div>
+
+      <div class="timeline-item" data-title="Speaker 5" data-desc="3:00 PM – Talk by our fifth speaker.">
+        <div class="timeline-circle"><img src="media/photos/speaker5.JPG" alt="Speaker 5" loading="lazy"></div>
+        <p class="label">Speaker 5</p>
+      </div>
+
+      <div class="timeline-item" data-title="Activity" data-desc="3:30 PM – Interactive audience activity.">
+        <div class="timeline-circle"><img src="media/photos/break.jpeg" alt="Activity" loading="lazy"></div>
+        <p class="label">Activity</p>
+      </div>
+
+      <div class="timeline-item" data-title="Panel Discussion" data-desc="4:00 PM – A thought-provoking discussion with our speakers.">
+        <div class="timeline-circle"><img src="media/photos/paneldiscussion.JPG" alt="Panel Discussion" loading="lazy"></div>
+        <p class="label">Panel Discussion</p>
+      </div>
+
+      <div class="timeline-item" data-title="Performance" data-desc="4:40 PM – Fifth cultural performance.">
+        <div class="timeline-circle"><img src="media/photos/performance5.JPG" alt="Performance 5" loading="lazy"></div>
+        <p class="label">Performance 5</p>
+      </div>
+
+      <div class="timeline-item" data-title="Closing Ceremony" data-desc="5:00 PM – Vote of thanks and closing performance.">
+        <div class="timeline-circle"><img src="media/photos/performance6.JPG" alt="Closing" loading="lazy"></div>
+        <p class="label">Performance 6</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="popup-overlay" id="popupOverlay"></div>
+
+
+  <!-- Popup Card -->
+  <div class="popup-card" id="popupCard">
+    <div class="popup-content">
+      <span class="popup-close" id="popupClose">&times;</span>
+      <h3 id="popupTitle"></h3>
+      <p id="popupDesc"></p>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Fullscreen Overlay -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+
+      <!-- Left: Nav Links -->
+      <div class="overlay-left">
+        <ul class="nav-links">
+          <li style="--i: 1"><a href="index.html">Home</a></li>
+          <li style="--i: 2"><a href="about.html">About</a></li>
+          <li style="--i: 3">
+  <a href="#" class="events-link">Events ▼</a>
+  <ul class="subevent-list" style="display: none;">
+    <li><a href="event2024.html">2024</a></li>
+    <li><a href="event2023.html">2023</a></li>
+  </ul>
+</li>
+          <li style="--i: 4"><a href="performers.html">Performers</a></li>
+          <li style="--i: 5"><a href="team.html">Team</a></li>
+          <li style="--i: 6"><a href="sponsors.html">Sponsors</a></li>
+          <li style="--i: 7"><a href="contact.html">Contact</a></li>
+          <li style="--i: 8"><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+
+      <!-- Right: TEDxGPREC Badge -->
+      <!-- Right: TEDxGPREC Badge + Tagline -->
+<div class="overlay-right">
+  <div class="badge-wrapper">
+    <img src="media/photos/badge1.png" alt="TEDxGPREC Badge" class="overlay-badge" />
+    <p class="badge-tagline">IDEAS CHANGE EVERYTHING</p>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+ <div style="display: flex; justify-content: center; align-items: center;">
+   <p style="color: white; text-align: center; font-size:50px;font-weight:bold">2024 SPEAKERS</p>
+   </div>
+   <br><br>
+   <div class="speaker-container speaker-grid" id="2025">
+      <!-- Replace speaker#.jpg with your image paths -->
+       <div class="flip-card"><div class="flip-inner"><div class="flip-front">
+        <img src="speakers/sahithi.jpeg"><h2>SAHITHI MANNAR</h2><strong>Psychologist</strong>
+      </div><div class="flip-back"><p>Helps individuals through emotional healing.</p><div class="socials"><a href="https://www.instagram.com/sahithimannar/"><img src="speakers/insta.png"></a><a href="https://x.com/samajeeva?t=HcGR-STjgdshqwz83UmS3A&s=08"><img src="speakers/twit.png"></a><a href="https://www.linkedin.com/in/sahithi-mannar/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="speakers/lin.png"></a></div></div></div></div>
+
+      <div class="flip-card"><div class="flip-inner"><div class="flip-front">
+        <img src="speakers/dr.jpeg"><h2>DRISHTI SHARMA</h2><strong>Content Creator</strong>
+      </div><div class="flip-back"><p>Empowers youth via storytelling.</p><div class="socials"><a href="https://www.instagram.com/drishtiispeaks/"><img src="speakers/insta.png"></a><a href="https://x.com/drishtiispeaks?t=ZVH3RWJV5dwXka3ammvrzA&s=08"><img src="speakers/twit.png"></a><a href="https://www.linkedin.com/in/drishtiisharma/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="speakers/lin.png"></a></div></div></div></div>
+
+      <div class="flip-card"><div class="flip-inner"><div class="flip-front">
+        <img src="speakers/ap.jpeg"><h2>ARPIT ARORA</h2><strong>Finance Strategist</strong>
+      </div><div class="flip-back"><p>Guides financial literacy and growth.</p><div class="socials"><a href="#"><img src="speakers/insta.png"></a><a href="https://x.com/arpit20587?t=xmYYeB_VMxKbuaJiAtrQig&s=08"><img src="speakers/twit.png"></a><a href="https://www.linkedin.com/company/askthewiseguy/"><img src="speakers/lin.png"></a></div></div></div></div>
+
+      <div class="flip-card"><div class="flip-inner"><div class="flip-front">
+        <img src="speakers/aj.jpeg"><h2>A J BHAIRAV</h2><strong>Influencer</strong>
+      </div><div class="flip-back"><p>Engages through powerful digital presence.</p><div class="socials"><a href="#"><img src="speakers/insta.png"></a><a href="https://x.com/ajbhairav?t=L-iJdaCRLC6biu3E69VI4A&s=08"><img src="speakers/twit.png"></a><a href="#"><img src="speakers/lin.png"></a></div></div></div></div>
+
+      <div class="flip-card"><div class="flip-inner"><div class="flip-front">
+        <img src="speakers/pnr.jpeg"><h2>PUNARNAVI BHUPALAM</h2><strong>Artist</strong>
+      </div><div class="flip-back"><p>Speaks through art and voice.</p><div class="socials"><a href="https://www.instagram.com/punarnavib/"><img src="speakers/insta.png"></a><a href="https://x.com/PunarnaviBHU?t=EvXGSXKm3UL8teSpzV_Wmw&s=08"><img src="speakers/twit.png"></a><a href="https://www.linkedin.com/in/punarnavi-bhupalam-b8aa6654/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="speakers/lin.png"></a></div></div></div></div>
+    </div>
+    <br><br><br><br><br><br>
+     <div style="display: flex; justify-content: center; align-items: center;">
+   <p style="color:white; text-align: center; font-size:50px;font-weight:bold">2024 SPONSORS</p>
+   </div><br><br>
+    <div class="logo-container">
+  <div class="logo-scroll">
+    <div class="logo-scroll__wrapper">
+      <!-- First set of logos -->
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <!-- Duplicate set for seamless scroll -->
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+      <img src="media/photos/speaker1.jpg" class="logo-item" />
+    </div>
+  </div>
+</div>
+
+    <br><br><br><br>
+  <script>
+      function toggleMenu(icon) {
+    icon.classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("open");
+  }
+   document.body.classList.add("overlay-open");
+
+document.body.classList.remove("overlay-open");
+    window.addEventListener('scroll', function () {
+  const flowTitle = document.querySelector('.flow-title');
+  const top = flowTitle.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+
+  if (top < windowHeight - 100) {
+    flowTitle.style.opacity = '1';
+    flowTitle.style.transform = 'translateY(0)';
+  }
+});
+    // ===== Timeline Line Width Update =====
+function updateTimelineLineWidth() {
+  const timeline = document.querySelector('.timeline');
+  const timelineLine = document.querySelector('.timeline-line');
+  const lastEvent = timeline?.lastElementChild;
+
+  if (timeline && timelineLine && lastEvent) {
+    const lineWidth = lastEvent.offsetLeft + lastEvent.offsetWidth + 100;
+    timelineLine.style.width = `${lineWidth}px`;
+  }
+}
+
+window.addEventListener('DOMContentLoaded', updateTimelineLineWidth);
+window.addEventListener('resize', updateTimelineLineWidth);
+
+
+// ===== Typing Popup on Event Click =====
+const timelineItems = document.querySelectorAll(".timeline-item");
+const popup = document.querySelector(".popup-card");
+const popupTitle = popup.querySelector("h3");
+const popupDesc = popup.querySelector("p");
+const closeBtn = document.querySelector(".popup-close");
+const overlay = document.getElementById("popupOverlay");
+
+function typeText(element, text, delay = 20) {
+  element.textContent = "";
+  let i = 0;
+  const typingInterval = setInterval(() => {
+    element.textContent += text[i];
+    i++;
+    if (i === text.length) clearInterval(typingInterval);
+  }, delay);
+}
+
+timelineItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    const title = item.getAttribute("data-title") || "Event Title";
+    const desc = item.getAttribute("data-desc") || "Event description goes here.";
+
+    popupTitle.classList.add("typing");
+    popupDesc.classList.remove("typing");
+
+    popup.classList.add("show");
+    overlay.classList.add("show");
+
+    popupTitle.textContent = title;
+    popupDesc.textContent = "";
+
+    setTimeout(() => {
+      popupTitle.classList.remove("typing");
+      popupDesc.classList.add("typing");
+      typeText(popupDesc, desc, 18);
+    }, 200);
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  popup.classList.remove("show");
+  overlay.classList.remove("show");
+});
+overlay.addEventListener("click", () => {
+  popup.classList.remove("show");
+  overlay.classList.remove("show");
+});
+
+// ===== Timeline Scroll Arrow Buttons =====
+const scrollAmount = 300;
+const leftBtn = document.querySelector(".scroll-btn.left");
+const rightBtn = document.querySelector(".scroll-btn.right");
+
+leftBtn.addEventListener("click", () => {
+  timelineContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+});
+rightBtn.addEventListener("click", () => {
+  timelineContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+});
+
+// ===== Fade-In Observer for Timeline Items =====
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fade-in");
+    }
+  });
+}, { threshold: 0.5 });
+
+timelineItems.forEach((item) => fadeObserver.observe(item));
+
+const toggle = document.getElementById("toggle-events");
+const subevents = document.querySelectorAll(".subevent");
+
+if (toggle) {
+  toggle.addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default once
+
+    const anyHidden = Array.from(subevents).some(
+      item => item.style.display === "none" || item.style.display === ""
+    );
+
+    subevents.forEach(item => {
+      item.style.display = anyHidden ? "block" : "none";
+    });
+
+    toggle.textContent = anyHidden ? "Events⏶" : "Events▼";
+  });
+}
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggleLink = document.querySelector(".events-link");
+    const submenu = document.querySelector(".subevent-list");
+
+    toggleLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+      toggleLink.textContent = submenu.style.display === "block" ? "Events ⏶" : "Events ▼";
+    });
+  });
+  </script>
+</body>
+</html>
