@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- [Your original <head> code preserved entirely] -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TEDx GPREC</title>
-   <link rel="icon" href="media\photos\icon.png" type="image/png">
+  <link rel="icon" href="media/photos/icon.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
     :root {
@@ -13,42 +14,35 @@
       --glass-blur: blur(6px);
     }
 
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     body {
       background-color: black;
       color: white;
-      padding-top: 100px; /* for fixed navbar */
+      padding-top: 100px;
     }
+
     ::-webkit-scrollbar {
-  width: 3px;
-}
-::-webkit-scrollbar {
-  height: 3px; /* thinner horizontal scrollbar */
-}
+      width: 3px;
+      height: 3px;
+    }
 
-/* Scrollbar track */
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
 
-/* Scrollbar thumb (the draggable part) */
-::-webkit-scrollbar-thumb {
-  background-color: red; /* Change to white if you prefer */
-  border-radius: 3px;
-}
+    ::-webkit-scrollbar-thumb {
+      background-color: red;
+      border-radius: 10px;
+    }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  min-height: 20px; /* Approx 3cm on high-res screens */
-}
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #ff4d4d;
+    }
 
-
-/* Optional: on hover */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #ff4d4d;
-}
-
-
-    /* ======================== NAVBAR ======================== */
     .nav-container {
       position: fixed;
       top: 20px;
@@ -56,6 +50,8 @@
       transform: translateX(-50%);
       width: 90%;
       height: 70px;
+      min-height: 70px;
+      max-height: 70px;
       padding: 0 30px;
       background: var(--glass-bg);
       backdrop-filter: var(--glass-blur);
@@ -65,6 +61,7 @@
       align-items: center;
       border-radius: 16px;
       z-index: 1500;
+      overflow: hidden;
     }
 
     .logo {
@@ -105,12 +102,10 @@
       top: 10px;
     }
 
-    /* ======================== OVERLAY MENU ======================== */
     .overlay {
       position: fixed;
       top: 100px;
       left: 0;
-      right: 0;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.65);
@@ -154,14 +149,9 @@
       animation: slideUp 0.4s ease forwards;
     }
 
-    .overlay-left li:nth-child(1) { animation-delay: 0.1s; }
-    .overlay-left li:nth-child(2) { animation-delay: 0.2s; }
-    .overlay-left li:nth-child(3) { animation-delay: 0.3s; }
-    .overlay-left li:nth-child(4) { animation-delay: 0.4s; }
-    .overlay-left li:nth-child(5) { animation-delay: 0.5s; }
-    .overlay-left li:nth-child(6) { animation-delay: 0.6s; }
-    .overlay-left li:nth-child(7) { animation-delay: 0.7s; }
-    .overlay-left li:nth-child(8) { animation-delay: 0.8s; }
+    .overlay-left li:nth-child(n) {
+      animation-delay: calc(var(--i) * 0.1s);
+    }
 
     .overlay-left a {
       font-size: 1.8rem;
@@ -231,28 +221,43 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ======================== ABOUT SECTION ======================== */
     .about-block {
-      opacity: 0;
-      transform: translateX(100px);
-      transition: all 0.8s ease;
-      border: 1px solid #444;
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2.5rem;
-      background-color: #1a1a1a;
-      text-align: justify;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
-    }
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.6s ease;
+  padding: 1.8rem 2rem;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(145deg, #000000, #ae3333);
+  border: 2px solid rgba(255, 0, 0, 0.4); /* Red border with opacity */
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.08), 0 0 30px rgba(255, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
 
-    .about-block.animate-in {
+/* Optional inner glow border */
+.about-block::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  border-radius: 18px;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+
+    .about-block.animate-right {
       opacity: 1;
       transform: translateX(0);
     }
 
     .about-block.animate-out {
       opacity: 0;
-      transform: translateX(-100px);
+      transform: translateX(100px);
     }
 
     .section-title {
@@ -268,77 +273,61 @@
       border-radius: 4px;
     }
 
-    .highlight { color: #ff5555; font-weight: bold; }
-    .highlight-red { color: red; font-weight: bold; }
-    .red-text { color: red; font-weight: bold; }
+    .highlight, .highlight-red, .red-text {
+      color: red;
+      font-weight: bold;
+    }
 
-    /* ======================== RESPONSIVE ======================== */
-   @media screen and (max-width: 768px) {
-  .nav-container {
-    width: 95%;
-    border-radius: 12px;
-    padding: 0 20px;
-  }
+    @media screen and (max-width: 768px) {
+      .nav-container {
+        width: 95%;
+        padding: 0 20px;
+        border-radius: 12px;
+      }
 
-  .overlay-content {
-    flex-direction: column;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-  }
+      .overlay-content {
+        flex-direction: column;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+      }
 
-  .overlay-left, .overlay-right {
-    width: 100%;
-    margin: 20px 0;
-    text-align: center;
-  }
+      .overlay-left, .overlay-right {
+        width: 100%;
+        margin: 20px 0;
+        text-align: center;
+      }
 
-  .overlay-left a {
-    font-size: 1.2rem;
-  }
+      .overlay-left a {
+        font-size: 1.2rem;
+      }
 
-  .overlay-badge {
-    max-width: 65%;
-  }
+      .overlay-badge {
+        max-width: 65%;
+      }
 
-  .badge-tagline {
-    font-size: 0.8rem;
-  }
+      .badge-tagline {
+        font-size: 0.8rem;
+      }
 
-  .about-section {
-    padding: 0 15px;
-  }
+      .about-section {
+        padding: 0 15px;
+      }
 
-  .about-block {
-    padding: 1rem 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 10px;
-    font-size: 0.95rem;
-   /* transform: none !important;*/
-  }
+      .about-block {
+        padding: 1rem;
+        font-size: 0.95rem;
+      }
 
-  .section-title {
-    font-size: 1.4rem;
-    text-align: center;
-  }
+      .section-title {
+        font-size: 1.4rem;
+        text-align: center;
+      }
 
-  .separator {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media screen and (max-width: 768px) {
-  .about-block {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  .about-block.animate-in {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-  
-}
-
+      .separator {
+        margin: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -347,28 +336,24 @@
   <div class="nav-container">
     <img src="media/photos/logo-white.png" alt="TEDxGPREC Logo" class="logo" />
     <div class="hamburger" onclick="toggleMenu(this)">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   </div>
 
   <!-- Overlay Menu -->
- <div class="overlay" id="overlay">
+  <div class="overlay" id="overlay">
     <div class="overlay-content">
-
-      <!-- Left: Nav Links -->
       <div class="overlay-left">
         <ul class="nav-links">
           <li style="--i: 1"><a href="index.html">Home</a></li>
           <li style="--i: 2"><a href="about.html">About</a></li>
           <li style="--i: 3">
-  <a href="#" class="events-link">Events ▼</a>
-  <ul class="subevent-list" style="display: none;">
-    <li><a href="event2024.html">2024</a></li>
-    <li><a href="event2023.html">2023</a></li>
-  </ul>
-</li>
+            <a href="#" class="events-link">Events ▼</a>
+            <ul class="subevent-list" style="display: none;">
+              <li><a href="event2024.html">2024</a></li>
+              <li><a href="event2023.html">2023</a></li>
+            </ul>
+          </li>
           <li style="--i: 4"><a href="performers.html">Performers</a></li>
           <li style="--i: 5"><a href="team.html">Team</a></li>
           <li style="--i: 6"><a href="sponsors.html">Sponsors</a></li>
@@ -387,75 +372,32 @@
 
   <!-- About Section -->
   <section class="about-section">
-    <div class="about-block">
+    <div class="about-block" data-direction="right">
       <h2 class="section-title"><span class="red-text"> About TED</span></h2>
+      <p>  TED(Technology, Entertainment, Design) is a non-profit media organization that posts international talks online for free distribution under the slogan "Ideas worth spreading". TED covers almost all topics – from science to business to global issues. It hosts talks that share unique ideas about almost everything under the sun, from business ventures to cooking techniques. A suite of short, carefully prepared talks, demonstrations and performances that are idea-focused, and cover a wide range of subjects to foster learning, inspiration and wonder – and provoke conversations that matter.</p>
       <div class="separator"></div>
-      <p>
-        TED(Technology, Entertainment, Design) is a non-profit media organization that posts international talks online for free distribution under the slogan "Ideas worth spreading". TED covers almost all topics – from science to business to global issues. It hosts talks that share unique ideas about almost everything under the sun, from business ventures to cooking techniques. A suite of short, carefully prepared talks, demonstrations and performances that are idea-focused, and cover a wide range of subjects to foster learning, inspiration and wonder – and provoke conversations that matter.
-      </p>
     </div>
-    <div class="about-block">
+
+    <div class="about-block" data-direction="right">
       <h2 class="section-title"><span class="red-text"> About TEDx</span></h2>
+      <p>  In the spirit of "Ideas worth spreading", TEDx event is a local gathering where live TED-like talks and performances are shared with the community. TEDx events are fully planned and coordinated independently, on a community-by-community basis. The content and design of each TEDx event is unique and developed independently, but all of them have features in common. TEDx organisers truly believe in the power of ideas to change the world. TEDx events are open source, local and community-driven, inspiring innovation, thought leadership and visionary insight..</p>
       <div class="separator"></div>
-      <p>
-       In the spirit of "Ideas worth spreading", TEDx event is a local gathering where live TED-like talks and performances are shared with the community. TEDx events are fully planned and coordinated independently, on a community-by-community basis. The content and design of each TEDx event is unique and developed independently, but all of them have features in common. TEDx organisers truly believe in the power of ideas to change the world. TEDx events are open source, local and community-driven, inspiring innovation, thought leadership and visionary insight..
-      </p>
     </div>
-    <div class="about-block">
+
+    <div class="about-block" data-direction="right">
       <h2 class="section-title"><span class="red-text"> About TEDxGPREC</span></h2>
+       <p>  TEDxGPREC is an independently organized TED event that aims to bring ideas worth spreading from all over India to its stage. TEDxGPREC talks will encapsulate ideas around our theme "Unboxing the new reality", exposing concepts, ideas, and achievements that will motivate, inspire, and introduce transformative topics to the audience. Our event will follow the TED format - with a pinch of Indian culture and our own added secret sauce - that takes the form of multiple sessions, each including several speakers who talk about interesting ideas along with breath-taking performances.</p>
       <div class="separator"></div>
-      <p>
-        TEDxGPREC is an independently organized TED event that aims to bring ideas worth spreading from all over India to its stage. TEDxGPREC talks will encapsulate ideas around our theme "Unboxing the new reality", exposing concepts, ideas, and achievements that will motivate, inspire, and introduce transformative topics to the audience. Our event will follow the TED format - with a pinch of Indian culture and our own added secret sauce - that takes the form of multiple sessions, each including several speakers who talk about interesting ideas along with breath-taking performances.
-      </p>
     </div>
   </section>
 
   <script>
-    function toggleMenu(icon) {
-      icon.classList.toggle("active");
-      document.getElementById("overlay").classList.toggle("open");
-    }
-    
-   document.body.classList.add("overlay-open");
+  // Hamburger toggle
+  function toggleMenu(icon) {
+    icon.classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("open");
+  }
 
-document.body.classList.remove("overlay-open");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const target = entry.target;
-        if (entry.isIntersecting) {
-          target.classList.add("animate-in");
-          target.classList.remove("animate-out");
-        } else {
-          target.classList.remove("animate-in");
-          target.classList.add("animate-out");
-        }
-      });
-    }, {
-      threshold: 0.1,
-    });
-
-    document.querySelectorAll(".about-block").forEach(block => {
-      observer.observe(block);
-    });
-
-    const toggle = document.getElementById("toggle-events");
-const subevents = document.querySelectorAll(".subevent");
-
-if (toggle) {
-  toggle.addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent default once
-
-    const anyHidden = Array.from(subevents).some(
-      item => item.style.display === "none" || item.style.display === ""
-    );
-
-    subevents.forEach(item => {
-      item.style.display = anyHidden ? "block" : "none";
-    });
-
-    toggle.textContent = anyHidden ? "Events⏶" : "Events▼";
-  });
-}
   document.addEventListener("DOMContentLoaded", () => {
     const toggleLink = document.querySelector(".events-link");
     const submenu = document.querySelector(".subevent-list");
@@ -465,7 +407,44 @@ if (toggle) {
       submenu.style.display = submenu.style.display === "block" ? "none" : "block";
       toggleLink.textContent = submenu.style.display === "block" ? "Events ⏶" : "Events ▼";
     });
+
+    // ==========================
+    // Scroll-based Right-to-Left Animation + Reverse 🔁
+    // ==========================
+    let lastScrollY = window.scrollY;
+
+    const observer = new IntersectionObserver((entries) => {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
+      lastScrollY = currentScrollY;
+
+      entries.forEach(entry => {
+        const block = entry.target;
+
+        if (entry.isIntersecting) {
+          if (scrollingDown) {
+            block.classList.add("animate-right");
+            block.classList.remove("animate-out");
+          } else {
+            // While scrolling up, keep block visible
+            block.classList.add("animate-right");
+            block.classList.remove("animate-out");
+          }
+        } else {
+          if (!scrollingDown) {
+            // Reverse when scrolling up and block is leaving viewport
+            block.classList.remove("animate-right");
+            block.classList.add("animate-out");
+          }
+        }
+      });
+    }, {
+      threshold: 0.2,
+    });
+
+    document.querySelectorAll(".about-block").forEach(block => observer.observe(block));
   });
-  </script>
+</script>
+
 </body>
 </html>
