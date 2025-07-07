@@ -326,6 +326,17 @@
     margin-left: auto;
     margin-right: auto;
   }
+  @media screen and (max-width: 768px) {
+  .about-block {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  .about-block.animate-in {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+  
 }
 
   </style>
