@@ -6,6 +6,7 @@
   <title>TEDx GPREC</title>
    <link rel="icon" href="media\photos\icon.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
   <style>
     :root {
       --tedx-red: #eb0028;
@@ -18,6 +19,35 @@
       color: white;
       padding-top: 100px; /* for fixed navbar */
     }
+    ::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar {
+  height: 3px; /* thinner horizontal scrollbar */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: red; /* Change to white if you prefer */
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  min-height: 20px; /* Approx 3cm on high-res screens */
+}
+
+
+/* Optional: on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff4d4d;
+}
+
 
     /* ========== NAVBAR ========== */
     .nav-container {
@@ -316,7 +346,7 @@
 <body>
 
   <!-- ✅ NAVBAR (YOU MISSED THIS BEFORE) -->
-  <div class="nav-container">
+  <div class="nav-container sticky-top">
     <img src="media/photos/logo-white.png" alt="TEDx Logo" class="logo">
     <div class="hamburger" onclick="toggleMenu(this)">
       <span></span>

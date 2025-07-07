@@ -860,7 +860,9 @@ body, html {
 @media (max-width: 768px) {
   .video {
     height: 30vh;
-    width:80%; /* instead of 30% */
+    width:90%; 
+    left: 10%;
+    margin-top:0px;/* instead of 30% */
   }
 
   .video video {
