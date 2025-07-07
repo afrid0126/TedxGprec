@@ -5,20 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TEDx GPREC – Performers</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <style>
+ <style>
     :root {
       --tedx-red: #eb0028;
       --glass-bg: rgba(18, 18, 18, 0.52);
       --glass-blur: blur(6px);
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       background-color: black;
       color: white;
-      padding-top: 100px; /* for fixed navbar */
+      padding-top: 100px;
+      font-family: sans-serif;
     }
 
-    /* ========== NAVBAR ========== */
     .nav-container {
       position: fixed;
       top: 20px;
@@ -67,15 +78,16 @@
       transform: rotate(45deg);
       top: 10px;
     }
+
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
+
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg);
       top: 10px;
     }
 
-    /* ========== OVERLAY ========== */
     .overlay {
       position: fixed;
       top: 100px;
@@ -231,7 +243,49 @@
       .badge-tagline {
         font-size: 0.8rem;
       }
+
+     
     }
+@media screen and (max-width: 768px) {
+  .team-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    padding: 0 10px 60px !important;
+    gap: 20px !important;
+  }
+
+  .team-member {
+    width: 90% !important;
+    max-width: 300px;
+    height: auto !important;
+  }
+
+  .team-member img {
+    height: auto;
+  }
+
+  .role-heading {
+    margin: 20px 20px 10px !important;
+    font-size: 20px !important;
+  }
+
+  .section-title {
+    font-size: 32px !important;
+    padding-top: 40px !important;
+  }
+
+  #year-filters {
+    flex-wrap: wrap;
+    padding: 0 10px;
+  }
+
+  .year-btn {
+    font-size: 16px !important;
+    padding: 6px 14px !important;
+    margin: 6px !important;
+  }
+}
 
     .section-title {
       text-align: center;
@@ -239,6 +293,7 @@
       color: var(--tedx-red);
       padding-top: 60px;
     }
+
     .section-title::after {
       content: "";
       display: block;
@@ -259,6 +314,7 @@
     #year-filters {
       text-align: center;
       margin: 20px 0 40px;
+      flex-wrap: wrap;
     }
 
     .year-btn {
@@ -291,42 +347,50 @@
       grid-template-columns: repeat(4, 1fr) !important;
     }
 
-    .team-member {
-      position: relative;
-      width: 220px;
-      height: 280px;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 0 12px rgba(255,26,26,0.2);
-    }
+    /* Put name and role below the image instead of inside an overlay */
 
-    .team-member img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(255, 26, 26, 0.3);
+  height: auto;
+  width: 100%;
+  max-width: 240px;
+}
 
-    .team-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255,26,26,0.9);
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
+.team-member img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
 
-    .team-overlay h3 {
-      margin: 5px 0 0;
-      font-size: 18px;
-    }
+/* Name & Role below the image */
+.team-overlay {
+  position: static;
+  background: none;
+  padding-top: 12px;
+  text-align: center;
+}
 
-    .team-overlay p {
-      margin: 0;
-      font-size: 14px;
-      font-style: italic;
-    }
+.team-overlay h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--tedx-red); /* Red Name */
+}
+
+.team-overlay p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--tedx-red); /* Red Role */
+  font-style: italic;
+}
+
   </style>
 </head>
 <body>
@@ -380,26 +444,32 @@
   <script>
     const performers2024 = [
       { section: "Dancers", members: [
-        { name: "Anusha", role: "Dancer", image: "Performers2023/dancer1.jpg" },
-        { name: "Megha", role: "Dancer", image: "Performers2023/dancer2.jpg" },
-        { name: "Sneha", role: "Dancer", image: "Performers2023/dancer3.jpg" },
-        { name: "Ritika", role: "Dancer", image: "Performers2023/dancer4.jpg" },
-        { name: "Deepika", role: "Dancer", image: "Performers2023/dancer5.jpg" },
-        { name: "Pavan", role: "Dancer", image: "Performers2023/dancer6.jpg" },
-        { name: "Krishna", role: "Dancer", image: "Performers2023/dancer7.jpg" },
-        { name: "Ramya", role: "Dancer", image: "Performers2023/dancer8.jpg" }
+        { name: "Jayasree", role: "Dancer", image: "Performers2024/1.png" },
+        { name: "Neha & Sarayu", role: "Dancer", image: "Performers2024/2.png" },
+        { name: "SSupraja & Hasini ", role: "Dancer", image: "Performers2024/3.png" },
+        { name: "sowGandhi & Harshitha", role: "Dancer", image: "Performers2024/12.png" },
+        { name: "Shyam", role: "Dancer", image: "Performers2024/18.png" },
+        { name: "Anil", role: "Dancer", image: "Performers2024/19.png" },
+        { name: "Avinash", role: "Dancer", image: "Performers2024/20.png" },
+        { name: "Sanjay", role: "Dancer", image: "Performers2024/21.png" }
       ]},
       { section: "Singers", members: [
-        { name: "Kiran", role: "Singer", image: "Performers2023/singer1.jpg" },
-        { name: "Varsha", role: "Singer", image: "Performers2023/singer2.jpg" }
+        { name: "Yashika", role: "Singer", image: "Performers2024/11.png" },
+        { name: "Srinidhi", role: "Singer", image: "Performers2024/10.png" },
+         { name: "Akhila", role: "Singer", image: "Performers2024/9.png" },
+        { name: "gandhi", role: "Singer", image: "Performers2024/8.png" },
+        { name: "Lohitha", role: "Singer", image: "Performers2024/7.png" }
       ]},
       { section: "Instrumentalists", members: [
-        { name: "Ravi", role: "Keyboard", image: "Performers2023/musician1.jpg" },
-        { name: "Teja", role: "Drums", image: "Performers2023/musician2.jpg" }
+        { name: "Mahima", role: "Guitar", image: "Performers2024/6.png" },
+        { name: "Manideep", role: "Drums", image: "Performers2024/5.png" },
+        { name: "Winsy", role: "Keys", image: "Performers2024/4.png" }
       ]},
       { section: "Hosts", members: [
-        { name: "Sai", role: "Host", image: "Performers2023/host1.jpg" },
-        { name: "Sneha", role: "Host", image: "Performers2023/host2.jpg" }
+        { name: "Avinash", role: "Host", image: "Performers2024/13.png" },
+        { name: "Harsha", role: "Host", image: "Performers2024/14.png" },
+         { name: "Satya Priya", role: "Host", image: "Performers2024/16.png" },
+          { name: "SowGandhi", role: "Host", image: "Performers2024/17.png" }
       ]}
     ];
 
