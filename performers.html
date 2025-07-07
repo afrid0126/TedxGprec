@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TEDx GPREC</title>
+  <title>TEDx GPREC – Performers</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
     :root {
@@ -232,94 +232,261 @@
         font-size: 0.8rem;
       }
     }
+
+    .section-title {
+      text-align: center;
+      font-size: 40px;
+      color: var(--tedx-red);
+      padding-top: 60px;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 150px;
+      height: 3px;
+      background: var(--tedx-red);
+      margin: 15px auto 40px;
+    }
+
+    .role-heading {
+      font-size: 24px;
+      color: var(--tedx-red);
+      margin: 40px 60px 10px;
+      border-left: 5px solid var(--tedx-red);
+      padding-left: 10px;
+    }
+
+    #year-filters {
+      text-align: center;
+      margin: 20px 0 40px;
+    }
+
+    .year-btn {
+      background: transparent;
+      border: 2px solid var(--tedx-red);
+      color: var(--tedx-red);
+      font-weight: 600;
+      padding: 8px 20px;
+      margin: 0 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .year-btn.active,
+    .year-btn:hover {
+      background: var(--tedx-red);
+      color: black;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      padding: 0 40px 80px;
+      justify-items: center;
+    }
+
+    .grid-4x2 {
+      grid-template-columns: repeat(4, 1fr) !important;
+    }
+
+    .team-member {
+      position: relative;
+      width: 220px;
+      height: 280px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(255,26,26,0.2);
+    }
+
+    .team-member img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,26,26,0.9);
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .team-overlay h3 {
+      margin: 5px 0 0;
+      font-size: 18px;
+    }
+
+    .team-overlay p {
+      margin: 0;
+      font-size: 14px;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
-
-  <!-- ✅ NAVBAR (YOU MISSED THIS BEFORE) -->
+  <!-- Navbar -->
   <div class="nav-container">
-    <img src="media/photos/logo-white.png" alt="TEDx Logo" class="logo">
+    <img src="media/photos/logo-white.png" alt="TEDx Logo" class="logo" />
     <div class="hamburger" onclick="toggleMenu(this)">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   </div>
 
-
-
-     <div class="overlay" id="overlay">
+  <!-- Overlay Menu -->
+  <div class="overlay" id="overlay">
     <div class="overlay-content">
-
-      <!-- Left: Nav Links -->
       <div class="overlay-left">
         <ul class="nav-links">
-          <li style="--i: 1"><a href="index.html">Home</a></li>
-          <li style="--i: 2"><a href="about.html">About</a></li>
-           <li style="--i: 3">
-  <a href="#" class="events-link">Events ▼</a>
-  <ul class="subevent-list" style="display: none;">
-    <li><a href="event2024.html">2024</a></li>
-    <li><a href="event2023.html">2023</a></li>
-  </ul>
-</li>
-          <li style="--i: 4"><a href="performers.html">Performers</a></li>
-          <li style="--i: 5"><a href="team.html">Team</a></li>
-          <li style="--i: 6"><a href="sponsors.html">Sponsors</a></li>
-          <li style="--i: 7"><a href="contact.html">Contact</a></li>
-          <li style="--i: 8"><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#" class="events-link">Events ▼</a>
+            <ul class="subevent-list" style="display:none;">
+              <li><a href="event2024.html">2024</a></li>
+              <li><a href="event2023.html">2023</a></li>
+            </ul>
+          </li>
+          <li><a href="performers.html">Performers</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </div>
       <div class="overlay-right">
-        <div class="badge-wrapper">
-          <img src="media/photos/badge1.png" alt="TEDxGPREC Badge" class="overlay-badge" />
-          <p class="badge-tagline">IDEAS CHANGE EVERYTHING</p>
-        </div>
+        <img src="media/photos/badge1.png" alt="TEDx GPREC Badge" class="overlay-badge"/>
+        <p class="badge-tagline">Ideas Change Everything</p>
       </div>
     </div>
   </div>
 
-  <!-- ✅ SCRIPT -->
+  <h1 class="section-title">Performers</h1>
+
+  <!-- Year Filters -->
+  <div id="year-filters">
+    <button class="year-btn active" data-year="2024">2024</button>
+    <button class="year-btn" data-year="2023">2023</button>
+  </div>
+
+  <!-- Performer Sections -->
+  <div id="performer-sections"></div>
+
+  <!-- Scripts -->
   <script>
+    const performers2024 = [
+      { section: "Dancers", members: [
+        { name: "Anusha", role: "Dancer", image: "Performers2023/dancer1.jpg" },
+        { name: "Megha", role: "Dancer", image: "Performers2023/dancer2.jpg" },
+        { name: "Sneha", role: "Dancer", image: "Performers2023/dancer3.jpg" },
+        { name: "Ritika", role: "Dancer", image: "Performers2023/dancer4.jpg" },
+        { name: "Deepika", role: "Dancer", image: "Performers2023/dancer5.jpg" },
+        { name: "Pavan", role: "Dancer", image: "Performers2023/dancer6.jpg" },
+        { name: "Krishna", role: "Dancer", image: "Performers2023/dancer7.jpg" },
+        { name: "Ramya", role: "Dancer", image: "Performers2023/dancer8.jpg" }
+      ]},
+      { section: "Singers", members: [
+        { name: "Kiran", role: "Singer", image: "Performers2023/singer1.jpg" },
+        { name: "Varsha", role: "Singer", image: "Performers2023/singer2.jpg" }
+      ]},
+      { section: "Instrumentalists", members: [
+        { name: "Ravi", role: "Keyboard", image: "Performers2023/musician1.jpg" },
+        { name: "Teja", role: "Drums", image: "Performers2023/musician2.jpg" }
+      ]},
+      { section: "Hosts", members: [
+        { name: "Sai", role: "Host", image: "Performers2023/host1.jpg" },
+        { name: "Sneha", role: "Host", image: "Performers2023/host2.jpg" }
+      ]}
+    ];
+
+    const performers2023 = [
+      { section: "Dancers", members: [
+        { name: "Jaya Sree", role: "Dancer", image:"Performers2023/Dancers/DSC0313.jpg" },
+        { name: "Nidhi", role: "Dancer", image:"Performers2023/Dancers/DSC0355.jpg" },
+        { name: "Prathyusha", role: "Dancer", image:"Performers2023/Dancers/DSC0373.jpg" },
+        { name: "Yeshwanth", role: "Dancer", image:"Performers2023/Dancers/DSC0600.jpg" },
+        { name: "Jatin", role: "Dancer", image:"Performers2023/Dancers/DSC0601.jpg" },
+        { name: "Mrudula", role: "Dancer", image:"Performers2023/Dancers/DSC0641.jpg" },
+        { name: "Swetha", role: "Dancer", image:"Performers2023/Dancers/DSC0642.jpg" },
+        { name: "Sannihita", role: "Dancer", image:"Performers2023/Dancers/DSC0643.jpg" }
+      ]},
+      { section: "Singers", members: [
+        { name: "Thanu Sree", role: "Singer", image:"Performers2023/Singers/DSC0467.jpg" },
+        { name: "Gandhi Prakash", role: "Singer", image:"Performers2023/Singers/DSC0711.jpg" },
+        { name: "Lohitha", role: "Singer", image:"Performers2023/Singers/DSC0477.jpg" },
+        { name: "Srinidhi", role: "Singer", image:"Performers2023/Singers/DSC0477.jpgPerformers2023/Singers/DSC0487.jpg" }
+      ]},
+      { section: "Instrumentalists", members: [
+        { name: "Prashanth", role: "Musician", image:"Performers2023/Instrumentalists/DSC0493.jpg" },
+        { name: "Mahima", role: "Musician", image:"Performers2023/Instrumentalists/DSC0497.jpg" },
+        { name: "Manideep", role: "Musician", image:"Performers2023/Instrumentalists/DSC0677.jpg" },
+        { name: "Winsy", role: "Musician", image:"Performers2023/Instrumentalists/DSC0680.jpg" }
+      ]},
+      { section: "Hosts", members: [
+        { name: "Diveej", role: "Host", image:"Performers2023/Hosts/DSC0300.jpg" },
+        { name: "Himaja", role: "Host", image:"Performers2023/Hosts/DSC0312.jpg" },
+        { name: "Venkata Kiriti", role: "Host", image:"Performers2023/Hosts/DSC0438.jpg" },
+        { name: "Aswia Simeen", role: "Host", image:"Performers2023/Hosts/DSC0576.jpg" }
+      ]}
+    ];
+
+    const container = document.getElementById("performer-sections");
+    const yearButtons = document.querySelectorAll(".year-btn");
+
+    function renderSections(data) {
+      container.innerHTML = "";
+      data.forEach(sec => {
+        const wrap = document.createElement("div");
+        const h = document.createElement("h2");
+        h.className = "role-heading";
+        h.textContent = sec.section;
+        wrap.appendChild(h);
+        const grid = document.createElement("div");
+        grid.className = "team-grid";
+        if (sec.section === "Dancers" && sec.members.length === 8) {
+          grid.classList.add("grid-4x2");
+        }
+        sec.members.forEach(m => {
+          const card = document.createElement("div");
+          card.className = "team-member";
+          card.innerHTML = `<img src="${m.image}" alt="${m.name}"><div class="team-overlay"><h3>${m.name}</h3><p>${m.role}</p></div>`;
+          grid.appendChild(card);
+        });
+        wrap.appendChild(grid);
+        container.appendChild(wrap);
+      });
+    }
+
+    renderSections(performers2024);
+
+    yearButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        yearButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const year = btn.dataset.year;
+        renderSections(year === '2024' ? performers2024 : performers2023);
+      });
+    });
+
     function toggleMenu(icon) {
       icon.classList.toggle("active");
       document.getElementById("overlay").classList.toggle("open");
     }
 
-         document.body.classList.add("overlay-open");
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleLink = document.querySelector(".events-link");
+      const submenu = document.querySelector(".subevent-list");
 
-document.body.classList.remove("overlay-open");
-
-const toggle = document.getElementById("toggle-events");
-const subevents = document.querySelectorAll(".subevent");
-
-if (toggle) {
-  toggle.addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent default once
-
-    const anyHidden = Array.from(subevents).some(
-      item => item.style.display === "none" || item.style.display === ""
-    );
-
-    subevents.forEach(item => {
-      item.style.display = anyHidden ? "block" : "none";
+      toggleLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        toggleLink.textContent = submenu.style.display === "block" ? "Events ⏶" : "Events ▼";
+      });
     });
-
-    toggle.textContent = anyHidden ? "Events⏶" : "Events▼";
-  });
-}
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggleLink = document.querySelector(".events-link");
-    const submenu = document.querySelector(".subevent-list");
-
-    toggleLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-      toggleLink.textContent = submenu.style.display === "block" ? "Events ⏶" : "Events ▼";
-    });
-  });
-
   </script>
-
 </body>
 </html>

@@ -156,7 +156,7 @@ timelineItems.forEach((item) => fadeObserver.observe(item));
 window.addEventListener("load", () => {
   setTimeout(() => {
     document.getElementById("loader").style.display = "none";
-  }, 10000); // only hide loader, no need to show anything
+  }, 7000); // only hide loader, no need to show anything
 });
 
 const toggle = document.getElementById("toggle-events");
@@ -187,4 +187,25 @@ if (toggle) {
       toggleLink.textContent = submenu.style.display === "block" ? "Events ⏶" : "Events ▼";
     });
   });
+//=====================pop up script================================================//
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
 
+    document.getElementById("welcomePopup").classList.add("show");
+    document.getElementById("welcomePopupOverlay").classList.add("show");
+    document.body.classList.add("popup-open");
+  }, 8000);
+});
+
+document.getElementById("closeWelcomePopup").addEventListener("click", () => {
+  document.getElementById("welcomePopup").classList.remove("show");
+  document.getElementById("welcomePopupOverlay").classList.remove("show");
+  document.body.classList.remove("popup-open");
+});
+
+document.getElementById("welcomePopupOverlay").addEventListener("click", () => {
+  document.getElementById("welcomePopup").classList.remove("show");
+  document.getElementById("welcomePopupOverlay").classList.remove("show");
+  document.body.classList.remove("popup-open");
+});
