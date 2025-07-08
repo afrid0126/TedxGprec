@@ -131,6 +131,7 @@ overlay.addEventListener("click", () => {
 const scrollAmount = 300;
 const leftBtn = document.querySelector(".scroll-btn.left");
 const rightBtn = document.querySelector(".scroll-btn.right");
+const timelineContainer = document.querySelector(".timeline-container"); // ✅ Fix here
 
 leftBtn.addEventListener("click", () => {
   timelineContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
@@ -138,7 +139,6 @@ leftBtn.addEventListener("click", () => {
 rightBtn.addEventListener("click", () => {
   timelineContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
 });
-
 // ===== Fade-In Observer for Timeline Items =====
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
