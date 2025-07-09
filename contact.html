@@ -524,7 +524,14 @@ if (toggle) {
   });
 
 
-    form.addEventListener('submit', function (e) {
+  document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById('contact-form');
+  if (!form) {
+    console.error("❌ Form element with ID 'contact-form' not found in the DOM.");
+    return;
+  }
+
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const templateParams = {
@@ -544,6 +551,8 @@ if (toggle) {
         alert("Oops! Something went wrong.");
       });
   });
+});
+
     
 
   </script>
