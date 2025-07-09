@@ -522,15 +522,15 @@ if (toggle) {
   });
   </script>
   <script type="module">
-   import { EmailJS } from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+  import { EmailJS } from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
 
+  const emailjs = new EmailJS();
+  emailjs.init("02s7QihGO4buI7JqN"); // Replace with your EmailJS Public Key
 
   document.addEventListener("DOMContentLoaded", () => {
-    emailjs.init("02s7QihGO4buI7JqN"); // your public key
-
     const form = document.getElementById('contact-form');
     if (!form) {
-      console.error("❌ Form with ID 'contact-form' not found.");
+      console.error("❌ Form element with ID 'contact-form' not found.");
       return;
     }
 
@@ -557,6 +557,7 @@ if (toggle) {
     });
   });
 </script>
+
 
 </body>
 </html>
