@@ -524,11 +524,7 @@ if (toggle) {
   });
 
 
-     (function () {
-    emailjs.init("qwL3NbmUHEEVPeJMX"); // Your user ID from EmailJS
-  })();
-
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    form.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const templateParams = {
@@ -540,11 +536,11 @@ if (toggle) {
 
     emailjs.send("service_dc5ac3v", "template_njy3zvw", templateParams)
       .then(function (response) {
-        console.log("SUCCESS!", response.status, response.text);
+        console.log("✅ SUCCESS!", response.status, response.text);
         alert("Thank you for your message!");
-        document.getElementById("contact-form").reset();
+        form.reset();
       }, function (error) {
-        console.log("FAILED...", error);
+        console.log("❌ FAILED...", error);
         alert("Oops! Something went wrong.");
       });
   });
