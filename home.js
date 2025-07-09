@@ -156,7 +156,7 @@ timelineItems.forEach((item) => fadeObserver.observe(item));
 window.addEventListener("load", () => {
   setTimeout(() => {
     document.getElementById("loader").style.display = "none";
-  }, 6000); // only hide loader, no need to show anything
+  }, 3000); // only hide loader, no need to show anything
 });
 
 const toggle = document.getElementById("toggle-events");
@@ -195,7 +195,7 @@ window.addEventListener("load", () => {
     document.getElementById("welcomePopup").classList.add("show");
     document.getElementById("welcomePopupOverlay").classList.add("show");
     document.body.classList.add("popup-open");
-  }, 7000);
+  }, 4000);
 });
 
 document.getElementById("closeWelcomePopup").addEventListener("click", () => {
