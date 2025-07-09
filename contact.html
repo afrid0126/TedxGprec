@@ -521,11 +521,10 @@ if (toggle) {
     });
   });
   </script>
-  <script type="module">
-  import { EmailJS } from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+ <script type="module">
+  import * as emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/es/index.js';
 
-  const emailjs = new EmailJS();
-  emailjs.init("02s7QihGO4buI7JqN"); // Replace with your EmailJS Public Key
+  emailjs.init("02s7QihGO4buI7JqN"); // Your Public Key
 
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById('contact-form');
