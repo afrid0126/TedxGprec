@@ -522,18 +522,18 @@ if (toggle) {
   });
   </script>
   <script type="module">
-  import emailjs from 'https://cdn.emailjs.com/dist/email.min.mjs';
+  import emailjs from 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
 
-  document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("02s7QihGO4buI7JqN"); // Replace with your public key
+  document.addEventListener("DOMContentLoaded", () => {
+    emailjs.init("02s7QihGO4buI7JqN"); // your public key
 
     const form = document.getElementById('contact-form');
     if (!form) {
-      console.error("❌ Form element with ID 'contact-form' not found.");
+      console.error("❌ Form with ID 'contact-form' not found.");
       return;
     }
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const templateParams = {
@@ -544,15 +544,15 @@ if (toggle) {
         time: new Date().toLocaleString()
       };
 
-      emailjs.send("service_p218r97", "template_4a40rzp", templateParams)
-        .then(response => {
-          console.log("✅ SUCCESS!", response.status, response.text);
-          alert("Thank you for your message!");
-          form.reset();
-        }, error => {
-          console.error("❌ FAILED...", error);
-          alert("Oops! Something went wrong.");
-        });
+      try {
+        const response = await emailjs.send("service_p218r97", "template_4a40rzp", templateParams);
+        console.log("✅ SUCCESS!", response.status, response.text);
+        alert("Thank you for your message!");
+        form.reset();
+      } catch (error) {
+        console.error("❌ FAILED...", error);
+        alert("Oops! Something went wrong.");
+      }
     });
   });
 </script>
