@@ -156,7 +156,7 @@ timelineItems.forEach((item) => fadeObserver.observe(item));
 window.addEventListener("load", () => {
   setTimeout(() => {
     document.getElementById("loader").style.display = "none";
-  }, 3000); // only hide loader, no need to show anything
+  }, 2000); // only hide loader, no need to show anything
 });
 
 const toggle = document.getElementById("toggle-events");

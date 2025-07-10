@@ -203,7 +203,7 @@ body, html {
    HERO SECTION
 ================================= */
 .hero-section {
-  margin-top: 140px;
+ /* margin-top:140px; */
   padding: 60px 20px;
   text-align: center;
 }
@@ -1173,5 +1173,44 @@ circle.progress {
 
   .glass-popup-close {
     font-size: 22px;
+  }
+}
+
+/*=========================== into video css==============================*/
+.video2025 {
+  position: relative;
+  width: 100%;
+  max-width: 800px; 
+  max-height:1000px;
+  margin: 0 auto;
+  height: 110%;
+  aspect-ratio: 30 /25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .video2025 {
+    width: 100%;
+    margin-top: 20px;
+    aspect-ratio: 18 / 15;
+    left: 0;
+  }
+
+  .video video {
+    width: 100%;
+    height: 100%;
   }
 }
