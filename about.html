@@ -221,21 +221,35 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .about-block {
+    .about-section {
+  padding: 0 5vw;
+  margin-top: 60px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.about-block {
+  aspect-ratio: 1 / 1; /* Square shape */
   opacity: 0;
   transform: translateX(100px);
   transition: all 0.6s ease;
-  padding: 1.8rem 2rem;
-  margin-bottom: 2.5rem;
+  padding: 1.5rem;
   background: black;
-  border: 2px solid rgba(255, 0, 0, 0.4); /* Red border with opacity */
+  border: 2px solid rgba(255, 0, 0, 0.4);
   border-radius: 16px;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.08), 0 0 30px rgba(255, 0, 0, 0.03);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* Optional inner glow border */
 .about-block::before {
   content: '';
   position: absolute;
@@ -249,85 +263,53 @@
   opacity: 0.6;
 }
 
+.about-block.animate-right {
+  opacity: 1;
+  transform: translateX(0);
+}
 
-    .about-block.animate-right {
-      opacity: 1;
-      transform: translateX(0);
-    }
+.about-block.animate-out {
+  opacity: 0;
+  transform: translateX(100px);
+}
 
-    .about-block.animate-out {
-      opacity: 0;
-      transform: translateX(100px);
-    }
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  text-align:center;
+  font-weight:bold;
+}
 
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
+.separator {
+  width: 50px;
+  height: 4px;
+  background-color: red;
+  margin-bottom: 1.2rem;
+  border-radius: 4px;
+}
 
-    .separator {
-      width: 50px;
-      height: 4px;
-      background-color: red;
-      margin-bottom: 1.2rem;
-      border-radius: 4px;
-    }
+.highlight, .highlight-red, .red-text {
+  color: red;
+  font-weight: bold;
+}
 
-    .highlight, .highlight-red, .red-text {
-      color: red;
-      font-weight: bold;
-    }
+/* Responsive text inside blocks */
+.about-block p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
-    @media screen and (max-width: 768px) {
-      .nav-container {
-        width: 95%;
-        padding: 0 20px;
-        border-radius: 12px;
-      }
+/* Mobile fix */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 1.2rem;
+  }
 
-      .overlay-content {
-        flex-direction: column;
-        padding: 20px;
-        justify-content: center;
-        align-items: center;
-      }
+  .about-block p {
+    font-size: 0.85rem;
+  }
+}
 
-      .overlay-left, .overlay-right {
-        width: 100%;
-        margin: 20px 0;
-        text-align: center;
-      }
-
-      .overlay-left a {
-        font-size: 1.2rem;
-      }
-
-      .overlay-badge {
-        max-width: 65%;
-      }
-
-      .badge-tagline {
-        font-size: 0.8rem;
-      }
-
-      .about-section {
-        padding: 0 15px;
-      }
-
-      .about-block {
-        padding: 1rem;
-        font-size: 0.95rem;
-      }
-
-      .section-title {
-        font-size: 1.4rem;
-        text-align: center;
-      }
-
-      .separator {
-        margin: auto;
-      }
-    }
   </style>
 </head>
 <body>
@@ -371,25 +353,26 @@
   </div>
 
   <!-- About Section -->
-  <section class="about-section">
+  <!-- About Section -->
+<section class="about-section">
+  <div class="about-grid">
     <div class="about-block" data-direction="right">
       <h2 class="section-title"><span class="red-text"> About TED</span></h2>
-      <p>  TED(Technology, Entertainment, Design) is a non-profit media organization that posts international talks online for free distribution under the slogan "Ideas worth spreading". TED covers almost all topics – from science to business to global issues. It hosts talks that share unique ideas about almost everything under the sun, from business ventures to cooking techniques. A suite of short, carefully prepared talks, demonstrations and performances that are idea-focused, and cover a wide range of subjects to foster learning, inspiration and wonder – and provoke conversations that matter.</p>
-      
+     <p>  TED(Technology, Entertainment, Design) is a non-profit media organization that posts international talks online for free distribution under the slogan "Ideas worth spreading". TED covers almost all topics – from science to business to global issues. It hosts talks that share unique ideas about almost everything under the sun, from business ventures to cooking techniques. A suite of short, carefully prepared talks, demonstrations and performances that are idea-focused, and cover a wide range of subjects to foster learning, inspiration and wonder – and provoke conversations that matter.</p>
+
     </div>
 
     <div class="about-block" data-direction="right">
       <h2 class="section-title"><span class="red-text"> About TEDx</span></h2>
       <p>  In the spirit of "Ideas worth spreading", TEDx event is a local gathering where live TED-like talks and performances are shared with the community. TEDx events are fully planned and coordinated independently, on a community-by-community basis. The content and design of each TEDx event is unique and developed independently, but all of them have features in common. TEDx organisers truly believe in the power of ideas to change the world. TEDx events are open source, local and community-driven, inspiring innovation, thought leadership and visionary insight..</p>
-     
     </div>
 
-    <div class="about-block" data-direction="right">
+   <div class="about-block" data-direction="right">
       <h2 class="section-title"><span class="red-text"> About TEDxGPREC</span></h2>
-       <p>  TEDxGPREC is an independently organized TED event that aims to bring ideas worth spreading from all over India to its stage. TEDxGPREC talks will encapsulate ideas around our theme "Unboxing the new reality", exposing concepts, ideas, and achievements that will motivate, inspire, and introduce transformative topics to the audience. Our event will follow the TED format - with a pinch of Indian culture and our own added secret sauce - that takes the form of multiple sessions, each including several speakers who talk about interesting ideas along with breath-taking performances.</p>
-     
+     <p>  TEDxGPREC is an independently organized TED event that aims to bring ideas worth spreading from all over India to its stage. TEDxGPREC talks will encapsulate ideas around our theme "Unboxing the new reality", exposing concepts, ideas, and achievements that will motivate, inspire, and introduce transformative topics to the audience. Our event will follow the TED format - with a pinch of Indian culture and our own added secret sauce - that takes the form of multiple sessions, each including several speakers who talk about interesting ideas along with breath-taking performances.</p>
     </div>
-  </section>
+  </div>
+</section>
 
   <script>
   // Hamburger toggle
