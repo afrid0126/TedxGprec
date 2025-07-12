@@ -483,32 +483,34 @@ input,textarea{
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.emailjs.com/sdk/3.11/email.min.js"></script>
 <script>
-  (function () {
-    emailjs.init("02s7QihGO4buI7JqN"); // ✅ Replace with your actual public key
-  })();
+  document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Initialize EmailJS
+    emailjs.init("02s7QihGO4buI7JqN");
 
-  document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
+    // ✅ Setup form handler
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    const templateParams = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      message: document.getElementById("message").value,
-      time: new Date().toLocaleString()
-    };
+      const templateParams = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value,
+        time: new Date().toLocaleString()
+      };
 
-    emailjs.send("service_p218r97", "template_4a40rzp", templateParams)
-      .then(function (response) {
-        alert("✅ Message sent successfully!");
-        console.log("SUCCESS", response.status, response.text);
-        document.getElementById("contact-form").reset();
-      }, function (error) {
-        alert("❌ Failed to send message.");
-        console.error("FAILED", error);
-      });
+      emailjs.send("service_p218r97", "template_4a40rzp", templateParams)
+        .then(function (response) {
+          alert("✅ Message sent successfully!");
+          document.getElementById("contact-form").reset();
+        }, function (error) {
+          alert("❌ Failed to send message.");
+          console.error("FAILED", error);
+        });
+    });
   });
 </script>
+
  <script>
     function toggleMenu(icon) {
       icon.classList.toggle("active");
