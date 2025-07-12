@@ -994,27 +994,39 @@ circle.progress {
   to   { opacity: 1; transform: translateY(0); }
 }
 .logo-container {
+  --logo-width: 200px;
+  --logo-height: 100px;
   --gap: 30px;
   --duration: 60s;
+  --scroll-start: 0;
+  --scroll-end: calc(-50% - var(--gap)); /* Scroll half, since two sets */
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  max-width: 100vw;
+  margin: auto;
   overflow: hidden;
-  width: 100%;
 }
 
 .logo-scroll {
   display: flex;
   overflow: hidden;
-  width: 100%;
+  gap: var(--gap);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
 }
 
 .logo-scroll__wrapper {
   display: flex;
+  flex-shrink: 0;
   gap: var(--gap);
-  animation: scrollLoop var(--duration) linear infinite;
-  width: max-content;
+  animation: scroll var(--duration) linear infinite;
 }
 
 .logo-scroll__wrapper:hover {
@@ -1022,11 +1034,11 @@ circle.progress {
 }
 
 .logo-item {
-  width: 200px;
-  height: 100px;
-  object-fit: contain;
+  width: var(--logo-width);
+  height: var(--logo-height);
   border-radius: 8px;
   background: #111;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
@@ -1034,25 +1046,12 @@ circle.progress {
   transform: scale(1.05);
 }
 
-@keyframes scrollLoop {
-  0% {
-    transform: translateX(0);
+@keyframes scroll {
+  from {
+    transform: translateX(var(--scroll-start));
   }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .logo-item {
-    width: 120px;
-    height: 60px;
-  }
-
-  .logo-scroll__wrapper {
-    gap: 20px;
-    animation-duration: 80s;
+  to {
+    transform: translateX(var(--scroll-end));
   }
 }
 
