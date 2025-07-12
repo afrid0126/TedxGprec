@@ -230,38 +230,36 @@
     }
 
     /* About Section */
-    .about-new {
-      padding: 100px 30px 80px;
-      background: radial-gradient(circle at top, #111 0%, #000 100%);
-      color: white;
-      text-align: center;
-    }
-
-    .about-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      justify-content: center;
-      align-items: stretch;
-    }
-
-  .about-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 0, 0, 0.15);
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
+   .about-new {
+  padding: 100px 30px 80px;
+  background: linear-gradient(to bottom, #0c0c0c 0%, #000000 100%);
+  color: white;
   text-align: center;
-  transform: translateY(30px);
-  opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  will-change: transform, opacity;
+}
+
+.about-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.about-card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 6px solid var(--tedx-red);
+  border-right: 6px solid var(--tedx-red);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
   box-shadow:
-    0 0 15px rgba(255, 0, 0, 0.15),
-    0 0 30px rgba(255, 0, 0, 0.1),
-    inset 0 0 20px rgba(255, 0, 0, 0.05);
+    0 4px 30px rgba(255, 0, 0, 0.08),
+    0 0 12px rgba(255, 0, 0, 0.05);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.4s ease;
+  overflow: hidden;
 }
 
 .about-card.visible {
@@ -270,32 +268,65 @@
   transition-delay: calc(0.2s * var(--delay));
 }
 
+.about-card:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 8px 40px rgba(255, 0, 0, 0.25),
+    inset 0 0 20px rgba(255, 0, 0, 0.05);
+}
+
+.about-card h2 span {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--tedx-red), #e9e4e4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.8px;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
 
 .about-card p {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: #ddd;
-  letter-spacing: 0.3px;
+  text-shadow: 0 0 4px rgba(255, 0, 0, 0.04);
 }
 
-.about-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--tedx-red);
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.6), 0 0 12px rgba(255, 0, 0, 0.3);
+@media (max-width: 600px) {
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-card h2 span {
+    font-size: 1.5rem;
+  }
+
+  .about-card p {
+    font-size: 0.95rem;
+  }
 }
 
 
-    @media screen and (max-width: 600px) {
-      .about-card {
-        padding: 1.5rem;
-      }
-    }
-    .about-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--tedx-red);
+@keyframes floatPulse {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+  100% { transform: translate(15px, 20px) rotate(5deg); opacity: 0.6; }
 }
+
+@media (max-width: 600px) {
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-card h2 span {
+    font-size: 1.5rem;
+  }
+
+  .about-card p {
+    font-size: 0.95rem;
+  }
+}
+
 
   </style>
 </head>
@@ -340,23 +371,49 @@
   </div>
 
   <!-- About Section -->
- <section class="about-new">
+<section class="about-new">
   <div class="about-wrapper">
     <div class="about-card" data-delay="0">
-      <h2>About TED</h2>
-     <p>  TED(Technology, Entertainment, Design) is a non-profit media organization that posts international talks online for free distribution under the slogan "Ideas worth spreading". TED covers almost all topics – from science to business to global issues. It hosts talks that share unique ideas about almost everything under the sun, from business ventures to cooking techniques. A suite of short, carefully prepared talks, demonstrations and performances that are idea-focused, and cover a wide range of subjects to foster learning, inspiration and wonder – and provoke conversations that matter.
-     </p>
+      <h2><span style="color:white">About TED</span></h2>
+      <p>
+        <span style="color: var(--tedx-red); font-weight: bold;">TED</span> (<b>Technology, Entertainment, Design</b>) is a 
+       non-profit media organization that shares 
+        free global talks under the slogan 
+        Ideas worth spreading."
+        
+        Covering almost  from science to 
+        business to global issues, TED features thought-provoking 
+        short talks, demos, and performances that spark 
+        curiosity, ignite imagination, and start important conversations.
+      </p>
     </div>
-    <div class="about-card" data-delay="1">
-      <h2>About TEDx</h2>
-    <p>  In the spirit of "Ideas worth spreading", TEDx event is a local gathering where live TED-like talks and performances are shared with the community. TEDx events are fully planned and coordinated independently, on a community-by-community basis. The content and design of each TEDx event is unique and developed independently, but all of them have features in common. TEDx organisers truly believe in the power of ideas to change the world. TEDx events are open source, local and community-driven, inspiring innovation, thought leadership and visionary insight..
-    </p>
-    </div>
-    <div class="about-card" data-delay="2">
-      <h2>About TEDxGPREC</h2>
-     <p>  TEDxGPREC is an independently organized TED event that aims to bring ideas worth spreading from all over India to its stage. TEDxGPREC talks will encapsulate ideas around our theme "Unboxing the new reality", exposing concepts, ideas, and achievements that will motivate, inspire, and introduce transformative topics to the audience. Our event will follow the TED format - with a pinch of Indian culture and our own added secret sauce - that takes the form of multiple sessions, each including several speakers who talk about interesting ideas along with breath-taking performances.
 
-     </p>
+    <div class="about-card" data-delay="1">
+      <h2><span style="color:white">About TEDx</span></h2>
+      <p>
+        <span style="color: var(--tedx-red); font-weight: bold;">TEDx</span> is a grassroots initiative modeled after TED, where 
+        local communities organize independent events to share 
+        powerful ideas  
+        These events are independently curated but adhere to TED’s spirit: 
+        ideas-driven, open-source, diverse, and community-centric. 
+        TEDx fosters innovation, leadership, and creativity 
+        showcasing voices that truly have the power to change the world.
+      </p>
+    </div>
+
+    <div class="about-card" data-delay="2">
+      <h2><span style="color:white">About TEDxGPREC</span></h2>
+      <p>
+         <span style="color: var(--tedx-red); font-weight: bold;">TEDxGPREC</span> is a student-led, officially licensed TEDx event 
+        at GPREC. It embodies our belief that ideas shape reality
+        
+        Under the theme "Unboxing the New Reality" 
+        we bring together trailblazing speakers and captivating performers to inspire and challenge 
+        perspectives.
+        
+        Blending the TED ethos with Indian culture and student creativity, 
+        TEDxGPREC creates a space where voices spark change and thought becomes action.
+      </p>
     </div>
   </div>
 </section>
